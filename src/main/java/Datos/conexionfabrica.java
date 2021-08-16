@@ -3,6 +3,8 @@ package Datos;
 import Iconexion.iconexion;
 import Implemts.ConexionPostgresql;
 import Implemts.ConexionVacia;
+import Implemts.ConexionSQLServer;
+import Implemts.ConexionMysQl;
 
 public class conexionfabrica {
 
@@ -13,7 +15,11 @@ public class conexionfabrica {
 	}
 	if (motor.equalsIgnoreCase("Postgresql")) {
 		return new ConexionPostgresql();
+	}if (motor.equalsIgnoreCase("SQL SERVER")) {
+		return new ConexionSQLServer();
+	}if (motor.equalsIgnoreCase("MySQL")) {
+		return new ConexionMysQl();
 	}
-	return new ConexionVacia();
+	return new ConexionVacia(); 
 	}
 }
